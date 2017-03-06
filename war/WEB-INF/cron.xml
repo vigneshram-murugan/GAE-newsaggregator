@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/jfcron</url>
+    <target>beta</target>
+    <description> testing cron</description>
+    <schedule>every 2 minutes </schedule>
+    <retry-parameters>
+      <min-backoff-seconds>2.5</min-backoff-seconds>
+      <max-doublings>5</max-doublings>
+    </retry-parameters>
+    
+  </cron>
+</cronentries>

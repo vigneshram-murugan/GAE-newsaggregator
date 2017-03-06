@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<title>News Aggregator</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body>
+
+	<nav class="light-blue lighten-1" role="navigation">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="#" class="brand-logo">News Aggregator</a>
+		</div>
+	</nav>
+
+	<div class="row">
+
+		<div class="row">
+			<div class="col s12">
+				<ul tabs reload="allTabContentLoaded">
+					<li class="tab col s4"><a href="#test1">New York Feeds</a></li>
+					
+				</ul>
+			</div>
+			
+			<div id="test1" class="col s12">
+				<div class="container" ng-controller="nyTimesController">
+					<div ng-repeat="item in nyTimes">
+						<ul class="collapsible popout" data-collapsible="accordion" watch>
+						    <li ng-repeat="docs in item.response.docs" ng-init="finished()">
+						        <div class="collapsible-header truncate">{{docs.title || docs.abstract}}</div>
+						        <div class="collapsible-body">
+						        	<p>{{docs.abstract}}</p>
+						        	<div class="center" style="margin-left: 100px;">
+							        	<img materialboxed 
+							        		 class="materialboxed responsive-img center" 
+							        		 data-caption="docs.headline.main" width="200px" height="200px" ng-src="{{docs.url || no-img.png}}">
+						        	</div>
+						        		 
+						        	<p><a ng-href="{{docs.url}}" target="_blank" class="waves-effect waves-light btn">Read More</a></p>	 
+						        </div>
+						    </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+	
+			
+		</div>
+	</div>
+
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+
+
+	<script src="js/app.js"></script>
+	<script>
+	  $(document).ready(function(){
+		    $('.materialboxed').materialbox();
+		});
+	</script>
+</body>
+</html>
