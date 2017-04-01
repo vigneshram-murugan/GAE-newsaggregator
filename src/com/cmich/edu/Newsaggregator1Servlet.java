@@ -29,6 +29,7 @@ public class Newsaggregator1Servlet extends HttpServlet  {
 	        		QueryResultList<Entity> result = pq1.asQueryResultList(FetchOptions.Builder.withLimit(10));  // storing query in result
 	        	
 	        		
+			
 	        		for(int i=0; i<10;i++)           // accessing each property  to print in servlet output screen
 	        		{   response.getWriter().print("\nNews Section :\t");
 	        			String sec=(result.get(i).getProperty("section")).toString();
